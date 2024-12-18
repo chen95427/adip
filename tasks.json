@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build with OpenCV",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",                                 // 加入調試信息
+                "${file}",                            // 當前編輯的文件
+                "-o",                                 // 輸出文件
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                
+                // Include 路徑：設置 OpenCV 頭文件目錄
+                "-I", "C:/opencv/install/include",
+                "-I", "C:/msys64/ucrt64/include/qt6/QtCore",
+                "-I", "C:/msys64/ucrt64/include/qt6/QtWidgets",
+                "-I", "C:/msys64/ucrt64/include/qt6/QtGui",
+                "-I", "C:/msys64/ucrt64/include",
+
+                
+                // Lib 路徑：設置 OpenCV 庫文件目錄
+                "-L", "C:/opencv/install/x64/mingw/lib",
+                "-L", "C:/msys64/ucrt64/lib",
+                
+                // 鏈接 OpenCV 庫文件，去掉 lib 前綴和 .dll/.a 後綴
+                "-lopencv_core4100", 
+                "-lopencv_highgui4100",
+                "-lopencv_imgcodecs4100",
+                "-lopencv_videoio4100",
+                "-lQt6Core",
+                "-lQt6Widgets",
+                "-lQt6Gui"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile and link with OpenCV using g++"
+        }
+    ]
+}

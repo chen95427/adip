@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with OpenCV",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // 指定編譯後的可執行文件
+            "args": [], // 如果有命令行參數，可以在這裡添加
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", // 設置當前工作目錄
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH};C:/opencv/install/x64/mingw/bin" // 添加 OpenCV DLL 目錄到環境變數
+                }
+            ],
+            "externalConsole": false, // 在內置終端中顯示輸出
+            "MIMode": "gdb", // 使用 gdb 進行調試
+            "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe", // gdb 路徑，根據你的安裝位置修改
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build with OpenCV" // 執行編譯任務
+        }
+    ]
+}

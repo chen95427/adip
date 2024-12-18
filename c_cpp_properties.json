@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "MinGW with OpenCV",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/opencv/install/include",
+                "C:/msys64/ucrt64/include/qt6/QtCore",
+                "C:/msys64/ucrt64/include/qt6/QtWidgets",
+                "C:/msys64/ucrt64/include/qt6/QtGui"  // OpenCV 頭文件路徑
+            ],
+            "defines": [],
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe", // g++ 編譯器路徑
+            "cStandard": "c17",
+            "cppStandard": "c++17", // 使用 C++17 標準
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "C:/opencv/install/include"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
